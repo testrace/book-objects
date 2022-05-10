@@ -23,7 +23,7 @@ public class Bag {
         return ticket != null;
     }
 
-    public void setTickets(Ticket ticket) {
+    public void setTicket(Ticket ticket) {
         this.ticket = ticket;
     }
 
