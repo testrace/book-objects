@@ -1,13 +1,9 @@
 package movie;
 
-public class NoneDiscountPolicy extends DiscountPolicy {
-
-    public NoneDiscountPolicy(DiscountCondition... conditions) {
-        super(conditions);
-    }
+public class NoneDiscountPolicy implements DiscountPolicy {
 
     @Override
-    Money getDiscountAmount(Screening screening) {
+    public Money calculateDiscountAmount(Screening screening) {
         return Money.ZERO;
     }
 }
