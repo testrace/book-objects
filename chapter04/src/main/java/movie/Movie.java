@@ -1,6 +1,7 @@
 package movie;
 
 import java.util.Collections;
+import java.util.List;
 
 public class Movie {
 
