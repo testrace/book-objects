@@ -16,4 +16,11 @@ public class Screening {
         return movie.calculateMovieFee(this).times(audienceCount);
     }
 
+    public LocalDateTime getWhenScreened() {
+        return whenScreened;
+    }
+
+    public int getSequence() {
+        return sequence;
+    }
 }
