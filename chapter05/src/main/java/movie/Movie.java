@@ -7,8 +7,7 @@ public class Movie {
     private String title;
     private Duration runningTIme;
     private Money fee;
-    private List<PeriodCondition> periodConditions;
-    private List<SequenceCondition> sequenceConditions;
+    private List<DiscountCondition> discountConditions;
 
     private MovieType movieType;
     private Money discountAmount;
@@ -47,16 +46,8 @@ public class Movie {
     }
 
     private boolean isDiscountable(Screening screening) {
-        return checkPeriodConditions(screening) || checkSequenceConditions(screening);
-    }
-
-    private boolean checkPeriodConditions(Screening screening) {
-        return periodConditions.stream()
+        return discountConditions.stream()
             .anyMatch(condition -> condition.isSatisfiedBy(screening));
     }
 
-    private boolean checkSequenceConditions(Screening screening) {
-        return sequenceConditions.stream()
-            .anyMatch(condition -> condition.isSatisfiedBy(screening));
-    }
 }

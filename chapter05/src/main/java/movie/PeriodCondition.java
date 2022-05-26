@@ -3,7 +3,7 @@ package movie;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
-public class PeriodCondition {
+public class PeriodCondition implements DiscountCondition {
 
     private DayOfWeek dayOfWeek;
     private LocalTime startTime;
@@ -15,6 +15,7 @@ public class PeriodCondition {
         this.endTime = endTime;
     }
 
+    @Override
     public boolean isSatisfiedBy(Screening screening) {
         return dayOfWeek.equals(screening.getWhenScreened().getDayOfWeek()) &&
             startTime.compareTo(screening.getWhenScreened().toLocalTime()) <= 0 &&
