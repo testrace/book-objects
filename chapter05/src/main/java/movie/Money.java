@@ -17,4 +17,8 @@ public class Money {
     public Money times(double percent) {
         return new Money((int) (value * percent));
     }
+
+    public Money minus(Money calculateDiscountAmount) {
+        return new Money(value - calculateDiscountAmount.value);
+    }
 }
