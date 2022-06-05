@@ -10,6 +10,7 @@ public abstract class Movie {
     private Money fee;
     private List<DiscountCondition> discountConditions;
 
+
     Movie(String title, Duration runningTime, Money fee, DiscountCondition... discountConditions) {
         this.title = title;
         this.runningTIme = runningTime;
@@ -27,12 +28,18 @@ public abstract class Movie {
 
     private boolean isDiscountable(Screening screening) {
         return discountConditions.stream()
-            .anyMatch(condition -> condition.isSatisfiedBy(screening));
+            .anyMatch(condition -> condition.isDiscountable(screening));
     }
 
     protected Money getFee() {
         return fee;
     }
+
+    public List<DiscountCondition> getDiscountConditions() {
+        return discountConditions;
+    }
+
+
 
     protected abstract Money calculateDiscountAmount();
 }

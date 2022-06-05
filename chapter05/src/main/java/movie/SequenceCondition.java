@@ -1,6 +1,6 @@
 package movie;
 
-public class SequenceCondition implements DiscountCondition {
+public class SequenceCondition {
 
     private int sequence;
 
@@ -8,7 +8,6 @@ public class SequenceCondition implements DiscountCondition {
         this.sequence = sequence;
     }
 
-    @Override
     public boolean isSatisfiedBy(Screening screening) {
         return sequence == screening.getSequence();
     }
