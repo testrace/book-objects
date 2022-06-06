@@ -12,4 +12,8 @@ public class TicketSeller {
         ticketOffice.sellTicketTo(audience);
     }
 
+    public void setTicket(Audience audience) {
+        ticketOffice.plusAmount(audience.setTicket(ticketOffice.getTicket()));
+    }
+
 }

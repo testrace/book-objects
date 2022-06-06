@@ -15,4 +15,8 @@ public class Audience {
     public Long buy(Ticket ticket) {
         return bag.hold(ticket);
     }
+
+    public Long setTicket(Ticket ticket) {
+        return bag.setTicket(ticket);
+    }
 }
