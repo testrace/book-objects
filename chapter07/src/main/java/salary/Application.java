@@ -1,7 +1,6 @@
 package salary;
 
 import java.util.Arrays;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Application {
@@ -11,15 +10,25 @@ public class Application {
     private static int[] basePays = {400, 300, 250};
 
     public static void main(String[] args) {
-        String name = "직원C";
+        String operation = args[0];
 
-        calculatePay(name);
+        if ("pay".equals(operation)) {
+            calculatePay(args[1]);
+        } else if ("basePays".equals(operation)) {
+            sumOfBasePays();
+        }
+
     }
 
     private static void calculatePay(String name) {
         double taxRate = getTaxRate();
         int pay = calculatePayFor(name, taxRate);
         puts(describeResult(name, pay));
+    }
+
+    private static void sumOfBasePays() {
+        int result = Arrays.stream(basePays).sum();
+        puts("급여 총액: " + result);
     }
 
     private static double getTaxRate() {
