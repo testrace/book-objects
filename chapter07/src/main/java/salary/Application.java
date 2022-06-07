@@ -13,6 +13,10 @@ public class Application {
     public static void main(String[] args) {
         String name = "직원C";
 
+        calculatePay(name);
+    }
+
+    private static void calculatePay(String name) {
         double taxRate = getTaxRate();
         int pay = calculatePayFor(name, taxRate);
         puts(describeResult(name, pay));
