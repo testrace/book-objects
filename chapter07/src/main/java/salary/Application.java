@@ -2,6 +2,7 @@ package salary;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Application {
 
@@ -24,12 +25,24 @@ public class Application {
 
     private static void calculatePay(String name) {
         double taxRate = getTaxRate();
-        double pay = calculatePayFor(name, taxRate);
+        double pay;
+        if (hourly(name)) {
+            pay = calculateHourlyPayFor(name, taxRate);
+        } else {
+            pay = calculatePayFor(name, taxRate);
+        }
         puts(describeResult(name, pay));
     }
 
+    private static boolean hourly(String name) {
+        return HOURLYS[Arrays.asList(EMPLOYEES).indexOf(name)];
+    }
+
     private static void sumOfBasePays() {
-        double result = Arrays.stream(BASE_PAYS).sum();
+        double result = IntStream.range(0, EMPLOYEES.length)
+            .filter(i -> !hourly(EMPLOYEES[i]))
+            .mapToDouble(i -> BASE_PAYS[i])
+            .sum();
         puts("급여 총액: " + result);
     }
 
@@ -41,6 +54,12 @@ public class Application {
     private static double calculatePayFor(String name, double taxRate) {
         int index = Arrays.asList(EMPLOYEES).indexOf(name);
         double basePay = BASE_PAYS[index];
+        return (basePay - (basePay * taxRate));
+    }
+
+    private static double calculateHourlyPayFor(String name, double taxRate) {
+        int index = Arrays.asList(EMPLOYEES).indexOf(name);
+        double basePay = BASE_PAYS[index] * TIME_CARDS[index];
         return (basePay - (basePay * taxRate));
     }
 
