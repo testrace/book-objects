@@ -9,6 +9,7 @@ public class Application {
     private static final String[] EMPLOYEES = {"직원A", "직원B", "직원C", "아르바이트D", "아르바이트E", "아르바이트F"};
     private static final double[] BASE_PAYS = {400, 300, 250, 1, 1, 1.5};
     private static final boolean[] HOURLYS = {false, false, false, true, true, true};
+    private static final int[] TIME_CARDS = {0, 0, 0, 120, 120, 120};
 
     public static void main(String[] args) {
         String operation = args[0];
