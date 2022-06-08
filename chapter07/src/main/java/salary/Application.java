@@ -6,8 +6,9 @@ import java.util.Scanner;
 public class Application {
 
     private static final Scanner SCANNER = new Scanner(System.in);
-    private static final String[] EMPLOYEES = {"직원A", "직원B", "직원C"};
-    private static int[] basePays = {400, 300, 250};
+    private static final String[] EMPLOYEES = {"직원A", "직원B", "직원C", "아르바이트D", "아르바이트E", "아르바이트F"};
+    private static final double[] BASE_PAYS = {400, 300, 250, 1, 1, 1.5};
+    private static final boolean[] HOURLYS = {false, false, false, true, true, true};
 
     public static void main(String[] args) {
         String operation = args[0];
@@ -22,12 +23,12 @@ public class Application {
 
     private static void calculatePay(String name) {
         double taxRate = getTaxRate();
-        int pay = calculatePayFor(name, taxRate);
+        double pay = calculatePayFor(name, taxRate);
         puts(describeResult(name, pay));
     }
 
     private static void sumOfBasePays() {
-        int result = Arrays.stream(basePays).sum();
+        double result = Arrays.stream(BASE_PAYS).sum();
         puts("급여 총액: " + result);
     }
 
@@ -36,14 +37,14 @@ public class Application {
         return Double.parseDouble(SCANNER.nextLine());
     }
 
-    private static int calculatePayFor(String name, double taxRate) {
+    private static double calculatePayFor(String name, double taxRate) {
         int index = Arrays.asList(EMPLOYEES).indexOf(name);
-        int basePay = basePays[index];
-        return (int)(basePay - (basePay * taxRate));
+        double basePay = BASE_PAYS[index];
+        return (basePay - (basePay * taxRate));
     }
 
-    private static String describeResult(String name, long pay) {
-        return String.format("이름: %s, 급여: %d", name, pay);
+    private static String describeResult(String name, double pay) {
+        return String.format("이름: %s, 급여: %f", name, pay);
     }
 
     private static void puts(String describeResult) {
