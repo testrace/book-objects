@@ -13,12 +13,12 @@ public class Application {
 
     static {
         EMPLOYEES = Arrays.asList(
-            new Employee("직원A", 400, false, 0),
-            new Employee("직원B", 300, false, 0),
-            new Employee("직원C", 250, false, 0),
-            new Employee("아르바이트D", 1, true, 120),
-            new Employee("아르바이트E", 1, true, 120),
-            new Employee("아르바이트F", 1, true, 120)
+//            new Employee("직원A", 400, false, 0),
+//            new Employee("직원B", 300, false, 0),
+//            new Employee("직원C", 250, false, 0),
+//            new Employee("아르바이트D", 1, true, 120),
+//            new Employee("아르바이트E", 1, true, 120),
+//            new Employee("아르바이트F", 1, true, 120)
         );
     }
 
