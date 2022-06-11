@@ -7,6 +7,13 @@ public class Employee {
     private boolean hourly;
     private int timeCard;
 
+    public Employee(String name, double basePay, boolean hourly, int timeCard) {
+        this.name = name;
+        this.basePay = basePay;
+        this.hourly = hourly;
+        this.timeCard = timeCard;
+    }
+
     public double calculatePay(double taxRate) {
         if (hourly) {
             return calculateHourlyPay(taxRate);
@@ -27,5 +34,9 @@ public class Employee {
 
     private double calculateSalariedPay(double taxRate) {
         return basePay - (basePay * taxRate);
+    }
+
+    public boolean areYou(String name) {
+        return name.equals(this.name);
     }
 }

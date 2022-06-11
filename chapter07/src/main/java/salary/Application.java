@@ -1,10 +1,26 @@
 package salary;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Application {
 
     private static final Scanner SCANNER = new Scanner(System.in);
+    private static final List<Employee> EMPLOYEES;
+
+    static {
+        EMPLOYEES = Arrays.asList(
+            new Employee("직원A", 400, false, 0),
+            new Employee("직원B", 300, false, 0),
+            new Employee("직원C", 250, false, 0),
+            new Employee("아르바이트D", 1, true, 120),
+            new Employee("아르바이트E", 1, true, 120),
+            new Employee("아르바이트F", 1, true, 120)
+        );
+    }
 
     public static void main(String[] args) {
         String operation = args[0];
@@ -18,28 +34,28 @@ public class Application {
     }
 
     private static void sumOfBasePays() {
-        puts("급여 총액: " + Employees.sumOfBasePays());
+        double result = EMPLOYEES.stream()
+            .mapToDouble(Employee::monthlyBasePay)
+            .sum();
+        puts("급여 총액: " + result);
     }
 
     private static void calculatePay(String name) {
-        double taxRate = getTaxRate();
-        double pay;
-        if (Employees.hourly(name)) {
-            pay = Employees.calculateHourlyPayFor(name, taxRate);
-        } else {
-            pay = Employees.calculatePayFor(name, taxRate);
-        }
-        puts(describeResult(name, pay));
+        Employee employee = EMPLOYEES.stream()
+            .filter(it -> it.areYou(name))
+            .findFirst()
+            .orElseThrow(NoSuchElementException::new);
+
+        double pay = employee.calculatePay(getTaxRate());
+
+        puts("급여: " + pay);
+
     }
 
 
     private static double getTaxRate() {
         System.out.print("세율을 입력하세요: ");
         return Double.parseDouble(SCANNER.nextLine());
-    }
-
-    private static String describeResult(String name, double pay) {
-        return String.format("이름: %s, 급여: %f", name, pay);
     }
 
     private static void puts(String describeResult) {
