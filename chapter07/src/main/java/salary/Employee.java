@@ -7,4 +7,18 @@ public class Employee {
     private boolean hourly;
     private int timeCard;
 
+    public double calculatePay(double taxRate) {
+        if (hourly) {
+            return calculateHourlyPay(taxRate);
+        }
+        return calculateSalariedPay(taxRate);
+    }
+
+    private double calculateHourlyPay(double taxRate) {
+        return (basePay * timeCard) - (basePay * timeCard) * taxRate;
+    }
+
+    private double calculateSalariedPay(double taxRate) {
+        return basePay - (basePay * taxRate);
+    }
 }
