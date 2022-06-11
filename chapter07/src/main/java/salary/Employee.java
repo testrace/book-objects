@@ -17,4 +17,12 @@ public abstract class Employee {
     public boolean areYou(String name) {
         return name.equals(this.name);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getBasePay() {
+        return basePay;
+    }
 }
