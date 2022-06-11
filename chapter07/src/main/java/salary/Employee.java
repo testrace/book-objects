@@ -14,6 +14,13 @@ public class Employee {
         return calculateSalariedPay(taxRate);
     }
 
+    public double monthlyBasePay() {
+        if (hourly) {
+            return 0;
+        }
+        return basePay;
+    }
+
     private double calculateHourlyPay(double taxRate) {
         return (basePay * timeCard) - (basePay * timeCard) * taxRate;
     }
