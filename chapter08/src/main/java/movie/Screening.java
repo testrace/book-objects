@@ -1,23 +1,30 @@
 package movie;
 
-import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 public class Screening {
 
-    private DayOfWeek dayOfWeek;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
+    private Movie movie;
+    private int sequence;
+    private LocalDateTime whenScreened;
 
-    public DayOfWeek getDayOfWeek() {
-        return dayOfWeek;
+    public Reservation reserve(Customer customer, int audienceCount) {
+        return new Reservation(customer, this, calculateFee(audienceCount), audienceCount);
     }
 
-    public LocalDateTime getStartTime() {
-        return startTime;
+    private Money calculateFee(int audienceCount) {
+        return movie.calculateMovieFee(this).times(audienceCount);
     }
 
-    public LocalDateTime getEndTime() {
-        return endTime;
+    public LocalDateTime getWhenScreened() {
+        return whenScreened;
+    }
+
+    public int getSequence() {
+        return sequence;
+    }
+
+    public Movie getMovie() {
+        return movie;
     }
 }
