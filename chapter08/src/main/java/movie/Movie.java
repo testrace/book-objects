@@ -11,6 +11,10 @@ public abstract class Movie {
     private List<DiscountCondition> discountConditions;
 
 
+    Movie(String title, Duration runningTime, Money fee) {
+        this(title, runningTime, fee, new DiscountCondition());
+    }
+
     Movie(String title, Duration runningTime, Money fee, DiscountCondition... discountConditions) {
         this.title = title;
         this.runningTIme = runningTime;
@@ -38,7 +42,6 @@ public abstract class Movie {
     public List<DiscountCondition> getDiscountConditions() {
         return discountConditions;
     }
-
 
 
     protected abstract Money calculateDiscountAmount();
