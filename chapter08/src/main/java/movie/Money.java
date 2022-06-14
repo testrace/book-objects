@@ -21,4 +21,8 @@ public class Money {
     public Money minus(Money calculateDiscountAmount) {
         return new Money(value - calculateDiscountAmount.value);
     }
+
+    public Money plus(Money money) {
+        return new Money(value + money.value);
+    }
 }
