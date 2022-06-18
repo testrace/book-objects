@@ -10,6 +10,10 @@ public class Money {
         this.value = value;
     }
 
+    public static Money wons(int value) {
+        return new Money(value);
+    }
+
     public Money times(int audienceCount) {
         return null;
     }
