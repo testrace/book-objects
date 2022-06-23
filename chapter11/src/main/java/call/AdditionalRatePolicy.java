@@ -1,6 +1,7 @@
 package call;
 
-public abstract class AdditionalRatePolicy implements RatePolicy{
+public abstract class AdditionalRatePolicy implements RatePolicy {
+
     private RatePolicy next;
 
     public AdditionalRatePolicy(RatePolicy next) {
