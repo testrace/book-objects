@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class Phone {
 
- private double taxRate;
+    private double taxRate;
     private List<Call> calls = new ArrayList<>();
 
     public Phone(double taxRate) {

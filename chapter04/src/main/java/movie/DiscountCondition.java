@@ -17,6 +17,10 @@ public class DiscountCondition {
         return type;
     }
 
+    public void setType(DiscountConditionType type) {
+        this.type = type;
+    }
+
     public boolean isDiscountable(DayOfWeek dayOfWeek, LocalTime time) {
         if (type != DiscountConditionType.PERIOD) {
             throw new IllegalArgumentException();
@@ -33,10 +37,6 @@ public class DiscountCondition {
         }
 
         return this.sequence == sequence;
-    }
-
-    public void setType(DiscountConditionType type) {
-        this.type = type;
     }
 
     public int getSequence() {

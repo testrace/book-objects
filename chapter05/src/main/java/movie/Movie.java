@@ -40,6 +40,5 @@ public abstract class Movie {
     }
 
 
-
     protected abstract Money calculateDiscountAmount();
 }

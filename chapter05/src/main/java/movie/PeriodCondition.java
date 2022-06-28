@@ -3,7 +3,7 @@ package movie;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
-public class PeriodCondition  {
+public class PeriodCondition {
 
     private DayOfWeek dayOfWeek;
     private LocalTime startTime;

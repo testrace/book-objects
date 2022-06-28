@@ -11,7 +11,6 @@ public class Employees {
     private static final int[] TIME_CARDS = {0, 0, 0, 120, 120, 120};
 
 
-
     public static boolean hourly(String name) {
         return HOURLYS[Arrays.asList(EMPLOYEES).indexOf(name)];
     }
