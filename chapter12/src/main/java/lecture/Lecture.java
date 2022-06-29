@@ -37,7 +37,7 @@ public class Lecture {
             .count();
     }
 
-    private Object failCount() {
+    private long failCount() {
         return scores.size() - passCount();
     }
 
