@@ -27,6 +27,14 @@ public class Lecture {
         return Collections.unmodifiableList(scores);
     }
 
+    public String status() {
+        return String.format("Title: %s, Evaluation Method: %s", title, getEvaluationMethod());
+    }
+
+    public String getEvaluationMethod() {
+        return "Pass or Fail";
+    }
+
     public String evaluate() {
         return String.format("Pass:%d Fail:%d", passCount(), failCount());
     }
