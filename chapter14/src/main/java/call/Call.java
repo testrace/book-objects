@@ -2,6 +2,7 @@ package call;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Call {
 
@@ -9,6 +10,10 @@ public class Call {
 
     public Call(DateTimeInterval interval) {
         this.interval = interval;
+    }
+
+    public List<DateTimeInterval> splitByDay() {
+        return interval.splitByDay();
     }
 
     public Duration getDuration() {
