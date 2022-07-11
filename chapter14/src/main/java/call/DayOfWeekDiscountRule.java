@@ -5,13 +5,13 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DayOfWeekDiscountRole {
+public class DayOfWeekDiscountRule {
 
     private List<DayOfWeek> dayOfWeeks = new ArrayList<>();
     private Duration duration = Duration.ZERO;
     private Money amount = Money.ZERO;
 
-    public DayOfWeekDiscountRole(List<DayOfWeek> dayOfWeeks, Duration duration, Money amount) {
+    public DayOfWeekDiscountRule(List<DayOfWeek> dayOfWeeks, Duration duration, Money amount) {
         this.dayOfWeeks = dayOfWeeks;
         this.duration = duration;
         this.amount = amount;
