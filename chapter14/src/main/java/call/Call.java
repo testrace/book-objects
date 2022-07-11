@@ -12,6 +12,10 @@ public class Call {
         this.interval = interval;
     }
 
+    public Call(LocalDateTime from, LocalDateTime to) {
+        this.interval = DateTimeInterval.of(from, to);
+    }
+
     public List<DateTimeInterval> splitByDay() {
         return interval.splitByDay();
     }
