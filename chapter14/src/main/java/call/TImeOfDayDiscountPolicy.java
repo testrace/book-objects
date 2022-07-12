@@ -5,7 +5,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TImeOfDayDiscountPolicy extends BasicRatePolicy{
+public class TImeOfDayDiscountPolicy extends BasicRatePolicy {
 
     private List<LocalTime> starts = new ArrayList<>();
     private List<LocalTime> ends = new ArrayList<>();
